@@ -1,0 +1,26 @@
+$dark: rgb(30,30,30);
+$light: rgb(250,250,250);
+$yellow: hsl(30,89%,65%);
+$dark-yellow: hsl(30,89%,60%);
+
+
+svg {
+  fill: $yellow;
+  transition: all ease 0.5s;
+}
+
+svg:hover {
+  fill: $dark-yellow
+}
+section {
+  padding: 100px;
+}
+
+.marginTop {
+  margin-top: 30px;
+}
+
+
+.nav-item {
+  margin-left: 15px;
+}
