@@ -17,13 +17,13 @@ export class AppComponent {
   tabAppareil:object[] = [this.tv, this.xbox, this.ps, this.lv];
 
   onAllumer():void {
-    for (let a of this.tabAppareil) {
+    for (let a:boolean of this.tabAppareil) {
       a.status = true;
     }
   }
 
   onEteindre():void {
-    for (let a of this.tabAppareil) {
+    for (let a:boolean of this.tabAppareil) {
       a.status = false;
     }
   }

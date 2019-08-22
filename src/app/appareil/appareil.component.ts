@@ -1,3 +1,4 @@
+
 import { Component, Input } from '@angular/core';
 import { Appareil } from './models/appareil';
 
