@@ -1,28 +1,41 @@
-
-import { Component, Input } from '@angular/core';
-import { Appareil } from './models/appareil';
+import { Component, OnInit, Input } from '@angular/core';
+import { Appareil } from '../models/appareil';
+import { AppareilService } from '../services/appareil.service';
 
 @Component({
   selector: 'app-appareil',
   templateUrl: './appareil.component.html',
   styleUrls: ['./appareil.component.scss']
 })
-
 export class AppareilComponent implements OnInit {
-  danger:string  = 'list-group-item-danger';
-  success:string = 'list-group-item-success';
-  textColor:string = '';
 
-  @Input() appareilName:string;
-  @Input() appareilStatus:boolean;
+	@Input() appareilName:string;
+	@Input() appareilStatus:string;
+  @Input() appareilIndex:number;
 
-   getName():string{
-      return this.appareilName.toUpperCase();
+	constructor(public appareilService:AppareilService) { }
+
+	ngOnInit() {
+	}
+
+  getName(){
+  	return this.appareilName.toUpperCase();
+ 	}
+
+  DelAppareil() {
+    this.appareilService.onDelAppareil(this.appareilIndex);
   }
 
   getColor():string {
-    this.appareilStatus == true ? this.textColor = '' : this.textColor ='blue';
-    return this.textColor;
+    return this.appareilStatus ? '' : 'blue';
+  }
+
+  powerOn() {
+    this.appareilService.switchOneOn(this.appareilIndex);
+  }
+
+  powerOff() {
+    this.appareilService.switchOneOff(this.appareilIndex);
   }
 
 }

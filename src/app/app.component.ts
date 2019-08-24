@@ -1,41 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Appareil } from './models/appareil';
+import { AppareilService } from './services/appareil.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   appareil:string = '';
+  tabAppareil:object[] = [];
 
-  tv:object   = new Appareil('TV', true);
-  xbox:object = new Appareil('Xbox', true);
-  ps:object   = new Appareil('PlayStation4', false);
-  lv:object   = new Appareil('Machine à laver', true);
+  constructor(public appareilService:AppareilService) {
 
-  tabAppareil:object[] = [this.tv, this.xbox, this.ps, this.lv];
+  }
+
+  ngOnInit() {
+  	this.tabAppareil = this.appareilService.tabAppareil;
+  }
 
   onAllumer():void {
-    for (let a:boolean of this.tabAppareil) {
-      a.status = true;
-    }
+    this.appareilService.switchAllOn();
   }
 
   onEteindre():void {
-    for (let a:boolean of this.tabAppareil) {
-      a.status = false;
-    }
+   	this.appareilService.switchAllOff();
   }
 
   addAppareil():void {
-    let appareil:object = new Appareil(this.appareil);
+    let currentAppareil:object = new Appareil(this.appareil);
+    console.log(currentAppareil);
 
-    if (appareil.name.trim().length > 0) {
-        this.tabAppareil.push(appareil);
+    if (currentAppareil.name.trim().length > 0) {
+        this.appareilService.tabAppareil.push(currentAppareil);
     }
 
     this.appareil = '';
   }
+
 }
 

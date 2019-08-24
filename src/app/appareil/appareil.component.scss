@@ -1,7 +1,25 @@
+$blue: #0F084B;
+$red: #C82333;
+
 .powerOff {
-  fill: #C82333;
+  fill: $red;
 }
 
 .powerOn {
-  fill: blue;
+  fill: $blue;
+}
+
+.displayFlex {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+}
+
+.buttonsOnOff {
+	display:flex;
+	flex-direction: column;
+}
+
+.buttonsOnOff  button:nth-child(2), .buttonsOnOff  button:nth-child(3) {
+	margin-top: 5px;
 }
