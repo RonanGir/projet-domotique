@@ -9,6 +9,6 @@
   <div class='buttonsOnOff'>
     <button class="btn btn-success btn-sm" (click)="powerOn()">ON</button>
     <button class="btn btn-danger btn-sm" (click)="powerOff()">OFF</button>
-    <button class="btn btn-light btn-sm" (click)="DelAppareil()">DEL</button>
+    <button class="btn btn-light btn-sm" *ngIf="appareilStatus == false" (click)="DelAppareil()">DEL</button>
   </div>
 </li>
