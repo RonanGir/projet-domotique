@@ -6,11 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { AppareilService } from './services/appareil.service';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+import { DatetimeFormatPipe } from './pipes/datetime-format.pipe';
+import { Constants } from './util/constants';
+import { FormatDateFrPipe } from './pipes/format-date-fr.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppareilComponent
+    AppareilComponent,
+    DateFormatPipe,
+    DatetimeFormatPipe,
+    FormatDateFrPipe
   ],
   imports: [
     FormsModule,
@@ -18,7 +26,8 @@ import { AppareilService } from './services/appareil.service';
     AppRoutingModule
   ],
   providers: [
-    AppareilService
+    AppareilService,
+    Constants
   ],
   bootstrap: [AppComponent]
 })

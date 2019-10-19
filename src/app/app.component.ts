@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Appareil } from './models/appareil';
 import { AppareilService } from './services/appareil.service';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,11 @@ import { AppareilService } from './services/appareil.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  appareil:string = '';
-  tabAppareil:object[] = [];
+  appareil:string   = '';
+  tabAppareil:any[] = [];
+  lastUpdate: Date  = new Date();
 
-  constructor(public appareilService:AppareilService) {
+  constructor(public appareilService: AppareilService) {
 
   }
 
@@ -28,8 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   addAppareil():void {
-    let currentAppareil:object = new Appareil(this.appareil);
-    console.log(currentAppareil);
+    let currentAppareil:any = new Appareil(this.appareil);
 
     if (currentAppareil.name.trim().length > 0) {
         this.appareilService.tabAppareil.push(currentAppareil);

@@ -6,12 +6,12 @@ import { Appareil } from '../models/appareil';
 })
 export class AppareilService {
 
-  tv:object   = new Appareil('TV', true);
-  xbox:object = new Appareil('Xbox', true);
-  ps:object   = new Appareil('PlayStation4', false);
-  lv:object   = new Appareil('Machine à laver', true);
+  tv:any   = new Appareil('TV', true);
+  xbox:any = new Appareil('Xbox', true);
+  ps:any   = new Appareil('PlayStation4', false);
+  lv:any   = new Appareil('Machine à laver', true);
 
-  tabAppareil:object[] = [this.tv, this.xbox, this.ps, this.lv];
+  tabAppareil:any[] = [this.tv, this.xbox, this.ps, this.lv];
 
   constructor() { }
 

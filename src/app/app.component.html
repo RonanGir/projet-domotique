@@ -30,6 +30,7 @@
     <div class=" col-sm-12">
 
       <h1 class="">Mes appareils</h1>
+      <p>Dernière mise à jour : {{ lastUpdate | datetimeFormat  }}</p>
 
        <ul class="list-group">
           <app-appareil *ngFor="let a of tabAppareil; let i = index"
