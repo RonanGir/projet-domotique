@@ -17,8 +17,8 @@ export class AppareilService {
 
   getAppareilById(id: number) {
     const appareil = this.tabAppareil.find(
-      (s) => {
-        return s.id === id;
+      (appareilObject) => {
+        return appareilObject.id === id;
       }
     );
     return appareil;

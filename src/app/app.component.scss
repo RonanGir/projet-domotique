@@ -1,7 +1,9 @@
 $dark: rgb(30,30,30);
 $light: rgb(250,250,250);
+$lighter: rgb(255,255,255);
 $yellow: hsl(30,89%,65%);
 $dark-yellow: hsl(30,89%,60%);
+
 
 
 svg {
@@ -21,8 +23,13 @@ section {
 }
 
 
-.nav-item {
+.nav-item a {
   margin-left: 15px;
+  color: $light;
+}
+
+.nav-item a:hover {
+  color: $lighter;
 }
 
 .active {

@@ -1,7 +1,14 @@
 <div class="col-sm-12">
 
-  <h1 class="">Mes appareils</h1>
-  <p>Dernière mise à jour : {{ lastUpdate | datetimeFormat  }}</p>
+  <div class="appareils_title">
+    <h1 class="">Mes appareils</h1>
+    <p>Dernière mise à jour : {{ lastUpdate | datetimeFormat  }}</p>
+  </div>
+  <div class="main_buttons">
+    <button class="btn btn-success" style="margin-left: 10px" (click)="onAllumer()">Tout Allumer</button>
+    <button class="btn btn-danger" style="margin-left: 10px" (click)="onEteindre()">Tout Éteindre</button>
+  </div>
+
 
   <ul class="list-group">
     <app-appareil *ngFor="let a of tabAppareil; let i = index"

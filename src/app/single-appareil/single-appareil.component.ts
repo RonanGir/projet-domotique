@@ -16,6 +16,7 @@ export class SingleAppareilComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
+    // + is used to cast (string to number) the id param
     this.name = this.appareilService.getAppareilById(+id).name;
     this.status = this.appareilService.getAppareilById(+id).status;
   }

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { AppareilService } from './services/appareil.service';
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from '.services/auth-guard.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { DatetimeFormatPipe } from './pipes/datetime-format.pipe';
 import { Constants } from './util/constants';

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Appareil } from './models/appareil';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -9,8 +10,14 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor() {}
+export class AppComponent implements OnInit {
+  isAuth: boolean;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.isAuth = this.authService.isAuth;
+  }
 
 }
 
