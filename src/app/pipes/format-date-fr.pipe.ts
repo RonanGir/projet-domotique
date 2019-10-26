@@ -6,8 +6,9 @@ import { Constants } from './../util/constants';
 })
 export class FormatDateFrPipe implements PipeTransform {
 
-  transform(date: Date, args?: any[]): any {
-    return formatDate(date, 'MMMM', Constants.formatDateFr)
+  transform(value: any, format: string): any {
+
+    return formatDate(value, Constants.DATE_TIME_FMT, Constants.FORMAT_FR )
   }
 
 }

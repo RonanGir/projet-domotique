@@ -1,5 +1,5 @@
 export class Appareil {
 
-	constructor(public name:string, public status:boolean=false) {}
+	constructor(public id: number, public name:string, public status:boolean=false) {}
 
 }

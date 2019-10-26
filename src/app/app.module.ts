@@ -6,10 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { AppareilService } from './services/appareil.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from '.services/auth-guard.service';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { DatetimeFormatPipe } from './pipes/datetime-format.pipe';
 import { Constants } from './util/constants';
 import { FormatDateFrPipe } from './pipes/format-date-fr.pipe';
+import { AuthComponent } from './auth/auth.component';
+import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 
 @NgModule({
@@ -18,7 +24,11 @@ import { FormatDateFrPipe } from './pipes/format-date-fr.pipe';
     AppareilComponent,
     DateFormatPipe,
     DatetimeFormatPipe,
-    FormatDateFrPipe
+    FormatDateFrPipe,
+    AuthComponent,
+    AppareilViewComponent,
+    SingleAppareilComponent,
+    FourOhFourComponent
   ],
   imports: [
     FormsModule,
@@ -27,7 +37,10 @@ import { FormatDateFrPipe } from './pipes/format-date-fr.pipe';
   ],
   providers: [
     AppareilService,
+    AuthService,
+    AuthGuard,
     Constants
+
   ],
   bootstrap: [AppComponent]
 })

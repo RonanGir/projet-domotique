@@ -12,11 +12,13 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav marginLeft mr-auto">
         <li class="nav-item">
-          <button class="btn btn-success" (click)="onAllumer()">Allumer</button>
+          <a class="nav-link" routerLinkActive="active" routerLink="auth">Authentification</a>
         </li>
         <li class="nav-item">
-          <button class="btn btn-danger" (click)="onEteindre()">Éteindre</button>
+          <a class="nav-link" routerLinkActive="active" routerLink="appareils">Appareils</a>
         </li>
+        <button class="btn btn-success" style="margin-left: 10px" (click)="onAllumer()">Tout Allumer</button>
+        <button class="btn btn-danger" style="margin-left: 10px" (click)="onEteindre()">Tout Éteindre</button>
       </ul>
       <form class="form-inline my-2 my-lg-0">
          <input class="form-control mr-sm-2" type="text" placeholder="appareil" [(ngModel)]="appareil" [ngModelOptions]="{standalone: true}">
@@ -27,22 +29,6 @@
 </header>
 <section class="container">
   <div class="row">
-    <div class=" col-sm-12">
-
-      <h1 class="">Mes appareils</h1>
-      <p>Dernière mise à jour : {{ lastUpdate | datetimeFormat  }}</p>
-
-       <ul class="list-group">
-          <app-appareil *ngFor="let a of tabAppareil; let i = index"
-          [appareilName]="a.name"
-          [appareilStatus]="a.status"
-          [appareilIndex]="i"
-          >
-          </app-appareil>
-        </ul>
-
-
-
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </section>

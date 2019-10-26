@@ -24,3 +24,11 @@ section {
 .nav-item {
   margin-left: 15px;
 }
+
+.active {
+  color: $yellow !important;
+}
+
+.nav-link {
+  color: $light;
+}

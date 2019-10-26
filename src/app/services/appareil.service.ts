@@ -6,14 +6,23 @@ import { Appareil } from '../models/appareil';
 })
 export class AppareilService {
 
-  tv:any   = new Appareil('TV', true);
-  xbox:any = new Appareil('Xbox', true);
-  ps:any   = new Appareil('PlayStation4', false);
-  lv:any   = new Appareil('Machine à laver', true);
+  tv:any   = new Appareil(1, 'TV', true);
+  xbox:any = new Appareil(2, 'Xbox', true);
+  ps:any   = new Appareil(3, 'PlayStation4', false);
+  lv:any   = new Appareil(4, 'Machine à laver', true);
 
   tabAppareil:any[] = [this.tv, this.xbox, this.ps, this.lv];
 
   constructor() { }
+
+  getAppareilById(id: number) {
+    const appareil = this.tabAppareil.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    return appareil;
+}
 
   switchAllOn():void {
   	for (let a of this.tabAppareil) {
