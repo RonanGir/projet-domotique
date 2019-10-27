@@ -18,10 +18,7 @@
           <a class="nav-link" routerLinkActive="active" routerLink="appareils">Appareils</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-         <input class="form-control mr-sm-2" type="text" placeholder="appareil" [(ngModel)]="appareil" [ngModelOptions]="{standalone: true}">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onAddAppareil()">Connecter</button>
-      </form>
+      <app-new-appareil></app-new-appareil>
   </div>
   </nav>
 </header>

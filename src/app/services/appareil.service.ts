@@ -61,9 +61,9 @@ export class AppareilService {
     this.emitAppareilSubject();
   }
 
-  addAppareil(appareil: string):void {
-    let number: number = Math.floor(Math.random() * 100);
-    let currentAppareil:any = new Appareil(number,appareil);
+  addAppareil(name: string, status: boolean): void {
+    let id: number = this.tabAppareil.length + 1 ;
+    let currentAppareil: any = new Appareil(id, name, status);
 
     if (currentAppareil.name.trim().length > 0) {
         this.tabAppareil.push(currentAppareil);

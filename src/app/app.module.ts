@@ -16,6 +16,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { NewAppareilComponent } from './new-appareil/new-appareil.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     AuthComponent,
     AppareilViewComponent,
     SingleAppareilComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    NewAppareilComponent
   ],
   imports: [
     FormsModule,

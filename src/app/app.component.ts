@@ -43,11 +43,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.counterSubscription.unsubscribe();
   }
 
-  onAddAppareil():void {
-    this.appareilService.addAppareil(this.appareil);
-    this.appareil = '';
-    this.appareilService.emitAppareilSubject();
-  }
-
 }
 

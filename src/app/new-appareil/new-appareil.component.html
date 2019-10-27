@@ -1,0 +1,11 @@
+<form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(newApp)" #newApp="ngForm">
+
+   <input class="form-control mr-sm-2" type="text" placeholder="nouvel appareil" name="name" ngModel required>
+
+   <select id="status" class="form-control" name="status" ngModel [ngModel]="defaultOnOff">
+      <option value="true">Allumé</option>
+      <option value="false">Éteint</option>
+  </select>
+
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="newApp.invalid">Connecter</button>
+</form>
