@@ -1,22 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Appareil } from '../models/appareil';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppareilService {
 
-  tv:any           = new Appareil(1, 'TV', true);
-  xbox:any         = new Appareil(2, 'Xbox', true);
-  ps:any           = new Appareil(3, 'PlayStation4', false);
-  lv:any           = new Appareil(4, 'Machine à laver', true);
-
+  private tabAppareil: any[];
   appareilsSubject = new Subject<any[]>();
 
-  private tabAppareil:any[] = [this.tv, this.xbox, this.ps, this.lv];
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.tabAppareil.slice());
@@ -58,6 +53,7 @@ export class AppareilService {
 
   onDelAppareil(i:number):void {
  	  this.tabAppareil.splice(i,1);
+    this.saveAppareilsToServer();
     this.emitAppareilSubject();
   }
 
@@ -70,6 +66,35 @@ export class AppareilService {
     }
 
     this.emitAppareilSubject();
+  }
+
+
+  saveAppareilsToServer() {
+    this.httpClient
+      .put('https://projet-domotique-b3c99.firebaseio.com/appareils.json', this.tabAppareil)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>('https://projet-domotique-b3c99.firebaseio.com/appareils.json')
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.tabAppareil = response;
+          this.emitAppareilSubject();
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
   }
 
 }

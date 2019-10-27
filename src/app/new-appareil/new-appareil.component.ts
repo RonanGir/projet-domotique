@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
 })
 export class NewAppareilComponent implements OnInit {
 
+  status: boolean = false;
+
   constructor(private appareilService: AppareilService,
               private router: Router) { }
 
@@ -23,7 +25,8 @@ export class NewAppareilComponent implements OnInit {
     const name   = form.value['name'];
     const status = form.value['status'];
     this.appareilService.addAppareil(name, status);
-    form.resetForm();
+    form.resetForm({ status: this.status });
+    this.appareilService.saveAppareilsToServer();
     this.router.navigate(['/appareils']);
   }
 

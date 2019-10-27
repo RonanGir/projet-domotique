@@ -25,6 +25,7 @@ export class AppareilComponent implements OnInit {
 
   DelAppareil() {
     this.appareilService.onDelAppareil(this.appareilIndex);
+    this.appareilService.saveAppareilsToServer();
   }
 
   getColor():string {
@@ -33,10 +34,12 @@ export class AppareilComponent implements OnInit {
 
   powerOn() {
     this.appareilService.switchOneOn(this.appareilIndex);
+    this.appareilService.saveAppareilsToServer();
   }
 
   powerOff() {
     this.appareilService.switchOneOff(this.appareilIndex);
+    this.appareilService.saveAppareilsToServer();
   }
 
 }

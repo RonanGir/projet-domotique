@@ -23,6 +23,7 @@ export class AppareilViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.appareilService.getAppareilsFromServer();
     this.appareilSubscription = this.appareilService.appareilsSubject.subscribe(
       (appareils: any[]) => {
         this.tabAppareil = appareils;
@@ -31,12 +32,14 @@ export class AppareilViewComponent implements OnInit, OnDestroy {
     this.appareilService.emitAppareilSubject();
   }
 
-  onAllumer():void {
+  onAllumer(): void {
     this.appareilService.switchAllOn();
+    this.appareilService.saveAppareilsToServer();
   }
 
-  onEteindre():void {
+  onEteindre(): void {
     this.appareilService.switchAllOff();
+    this.appareilService.saveAppareilsToServer();
   }
 
   ngOnDestroy() {
