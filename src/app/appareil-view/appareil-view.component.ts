@@ -15,7 +15,6 @@ export class AppareilViewComponent implements OnInit, OnDestroy {
   appareilSubscription: Subscription;
 
   isAuth: boolean    = false;
-  appareil: string   = '';
   tabAppareil: any[] = [];
   lastUpdate: Date   = new Date();
 
@@ -40,18 +39,7 @@ export class AppareilViewComponent implements OnInit, OnDestroy {
     this.appareilService.switchAllOff();
   }
 
-  addAppareil():void {
-    let number: number = Math.floor(Math.random() * 100);
-    let currentAppareil:any = new Appareil(number,this.appareil);
-
-    if (currentAppareil.name.trim().length > 0) {
-        this.appareilService.tabAppareil.push(currentAppareil);
-    }
-
-    this.appareil = '';
-  }
-
-    ngOnDestroy() {
+  ngOnDestroy() {
     this.appareilSubscription.unsubscribe();
   }
 

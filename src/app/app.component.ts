@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Appareil } from './models/appareil';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { AuthService } from './services/auth.service';
+import { AppareilService } from './services/appareil.service'
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/interval';
 
 
@@ -16,8 +18,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   secondes: number;
   counterSubscription: Subscription;
+  appareil: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private appareilService: AppareilService) {}
 
 
 
@@ -38,6 +41,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.counterSubscription.unsubscribe();
+  }
+
+  onAddAppareil():void {
+    this.appareilService.addAppareil(this.appareil);
+    this.appareil = '';
+    this.appareilService.emitAppareilSubject();
   }
 
 }

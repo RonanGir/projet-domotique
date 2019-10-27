@@ -61,4 +61,15 @@ export class AppareilService {
     this.emitAppareilSubject();
   }
 
+  addAppareil(appareil: string):void {
+    let number: number = Math.floor(Math.random() * 100);
+    let currentAppareil:any = new Appareil(number,appareil);
+
+    if (currentAppareil.name.trim().length > 0) {
+        this.tabAppareil.push(currentAppareil);
+    }
+
+    this.emitAppareilSubject();
+  }
+
 }
