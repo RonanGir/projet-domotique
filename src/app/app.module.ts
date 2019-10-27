@@ -27,6 +27,7 @@ import { SingleAppareilComponent } from './single-appareil/single-appareil.compo
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { NewAppareilComponent } from './new-appareil/new-appareil.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UserListComponent } from './user-list/user-list.component';
     SingleAppareilComponent,
     FourOhFourComponent,
     NewAppareilComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     FormsModule,
